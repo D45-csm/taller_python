@@ -1,1 +1,1 @@
-# taller_python
+# hecho por: Sebastian Girata y Daniel Acosta
