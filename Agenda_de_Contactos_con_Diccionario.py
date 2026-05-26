@@ -10,6 +10,7 @@ agenda_contactos = {
     "Ivan": "3034567890",
     "Laura": "3067890123"
 }
+#FUNCIONES PARA LA AGENDA DE CONTACTOS
 
 #añadir contacto
 def agregar_contacto(nombre, numero):
@@ -19,7 +20,7 @@ def agregar_contacto(nombre, numero):
         agenda_contactos[nombre] = numero
         print(f"Contacto {nombre} con número {numero} fue agregado exitosamente.")
 
-#buscar contacto por su nombre
+#buscar contacto y mostrar informacion
 def buscar_contacto(nombre):
     if nombre in agenda_contactos:
         print(f"El número de {nombre} es: {agenda_contactos[nombre]}")
@@ -44,7 +45,8 @@ while True:
     print("4. Salir")
 
     opcion = input("Seleccione una opción (1-4): ")
-#acciones según la opción seleccionada
+
+#validar la opcion y segun esta usar una de las funciones 
     match opcion:
         case "1":
             nombre = input("Ingrese el nombre del contacto: ")

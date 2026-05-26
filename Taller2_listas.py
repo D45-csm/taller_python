@@ -2,16 +2,17 @@
 # Lista de compras interactiva
 
 lista_compras = []
-
+# Menu interactivo  
 while True:
     print("\n--- MENÚ LISTA DE COMPRAS ---")
     print("1. Agregar ítem a la lista")
     print("2. Eliminar ítem de la lista")
     print("3. Ver la lista completa")
     print("4. Salir")
-
+    #ingreso de opcion 
     opcion = input("Elige una opción: ")
 
+    #accion de cada opcion 
     if opcion == "1":
         item = input("Escribe el ítem que deseas agregar: ")
         lista_compras.append(item)

@@ -3,14 +3,16 @@
 
 inventario = [
     {"nombre": "Camiseta", "precio": 20000, "cantidad": 89},
-    {"nombre": "Pantalón", "precio": 35700, "cantidad": 100},
+    {"nombre": "Pantalon", "precio": 35700, "cantidad": 100},
     {"nombre": "Zapatos", "precio": 80000, "cantidad": 31}
 ]
-
+#FUNCIONES PARA EL MENU
 #agregar producto
 def agregar_producto (nombre, precio, cantidad):
-    if nombre in inventario:
-        print("el producto ya existe en el inventario")
+    for producto in inventario:
+        if producto["nombre"].lower()==nombre.lower():
+            print("el produccto ya existe ")
+            break
     else:
         producto={"nombre": nombre , "precio": precio , "cantidad": cantidad}
         inventario.append(producto)
@@ -31,30 +33,32 @@ def realizar_venta(nombre_producto, cantidad_a_vender):
                 # Calcular el total
                 total = producto["precio"] * cantidad_a_vender
                 
-                print(f"¡Venta exitosa! Se vendieron {cantidad_a_vender}x {producto['nombre']}.")
-                print(f"Total a pagar: ${total:.2f}")
-                print(f"Stock restante de {producto['nombre']}: {producto['cantidad']}")
-                return  # Salimos de la función porque la venta ya se hizo
+                print(f"venta realizada, se vendieron {cantidad_a_vender}x {producto['nombre']}")
+                print(f"costo total: ${total:.2f}")
+                print(f"stock restante de {producto['nombre']}: {producto['cantidad']}")
+                return 
+            #caso en que no aya sufisiente stock    
             else:
-                print(f"Error: No hay suficiente stock. Solo quedan {producto['cantidad']} unidades.")
-                return
+                print(f" no hay suficiente stock. Solo quedan {producto['cantidad']} unidades")
+                
                 
     # Si el bucle termina y no encontró el producto
-    print(f"Error: El producto '{nombre_producto}' no existe en el inventario.")
-
+    print(f" el producto '{nombre_producto}' no existe en el inventario")
 
 #mostrar inventario
 def mostrar_inventario ():
     for producto in inventario:
         print(f"producto: {producto["nombre"]} precio: {producto["precio"]} cantidad disponible: {producto["cantidad"]} ")
 
-#menu interactivo
+
+#MENU INTERACTIVO
 print("sistema de inventario")
 while True:
     #opciones disponibles
-    print(f"\n 1) agregar producto \n 2) realizar venta \n 3) mostrar inventario \n 4) salir" )
+    print("\n 1) agregar producto \n 2) realizar venta \n 3) mostrar inventario \n 4) salir" )
     opcion= input("ingresa una opcion (1-4): ")
 
+    #verificar que opcion se tomo para saber que se devuelve
     match opcion:
         case "1":
             nombre=input("nombre del producto: ")
@@ -70,7 +74,3 @@ while True:
         case "4":
             print("gracias por usar el inventario")
             break
-
-
-
-
